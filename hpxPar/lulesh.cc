@@ -144,7 +144,8 @@ Additional BSD Notice
 
 */
 #include <hpx/hpx.hpp>
-#include <hpx/init.hpp>
+//#include <hpx/init.hpp>
+#include <hpx/local/init.hpp>
 #include <hpx/algorithm.hpp>
 #include <hpx/execution.hpp>
 
@@ -2336,6 +2337,7 @@ int hpx_main(int argc, char* argv[]) {
   //   for(Int_t i = 0; i < locDom->numReg(); i++)
   //      std::cout << "region" << i + 1<< "size" << locDom->regElemSize(i)
   //      <<std::endl;
+  int i = 0;
   while ((locDom->time() < locDom->stoptime()) &&
          (locDom->cycle() < opts.its)) {
 
@@ -2350,7 +2352,7 @@ int hpx_main(int argc, char* argv[]) {
     }
   }
 
-  // Use reduced max elapsed time
+  // Use reduced max elapsed time 
   double elapsed_time;
   timeval end;
   gettimeofday(&end, NULL);
@@ -2370,12 +2372,12 @@ int hpx_main(int argc, char* argv[]) {
 
   delete locDom;
 
-  return hpx::finalize();
+  return hpx::local::finalize();
 }
 
 int main(int argc, char* argv[])
 {
     // Initialize HPX, run hpx_main as the first HPX thread, and
     // wait for hpx::finalize being called.
-    return hpx::init(argc, argv);
+    return hpx::local::init(hpx_main, argc, argv);
 }
