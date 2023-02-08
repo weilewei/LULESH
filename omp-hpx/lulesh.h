@@ -592,6 +592,11 @@ class Domain {
    Index_t m_colMin, m_colMax;
    Index_t m_planeMin, m_planeMax ;
 
+public:
+   std::vector<Real_t> fx_elem;
+   std::vector<Real_t> fy_elem;
+   std::vector<Real_t> fz_elem;   
+
 } ;
 
 typedef Real_t &(Domain::* Domain_member )(Index_t) ;

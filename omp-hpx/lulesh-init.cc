@@ -5,6 +5,9 @@
 #if _OPENMP
 #include <omp.h>
 #endif
+
+#include <hpx/hpx.hpp>
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -117,9 +120,7 @@ Domain::Domain(Int_t numRanks, Index_t colLoc,
 
    BuildMesh(nx, edgeNodes, edgeElems);
 
-#if _OPENMP
    SetupThreadSupportStructures();
-#endif
 
    // Setup region index sets. For now, these are constant sized
    // throughout the run, but could be changed every cycle to 
@@ -274,7 +275,7 @@ Domain::SetupThreadSupportStructures()
 #if _OPENMP
    Index_t numthreads = omp_get_max_threads();
 #else
-   Index_t numthreads = 1;
+   Index_t numthreads = hpx::get_num_worker_threads();
 #endif
 
   if (numthreads > 1) {
