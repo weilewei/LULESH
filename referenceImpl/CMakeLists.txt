@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0)
 
 project(LULESH CXX)
 
-option(WITH_MPI    "Build LULESH with MPI"          TRUE)
+option(WITH_MPI    "Build LULESH with MPI"          FALSE)
 option(WITH_OPENMP "Build LULESH with OpenMP"       TRUE)
 option(WITH_SILO   "Build LULESH with silo support" FALSE)
 

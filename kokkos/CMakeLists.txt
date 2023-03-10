@@ -3,7 +3,7 @@ project(parSTL LANGUAGES CXX C)
 
 set(CMAKE_BUILD_TYPE Release)
 
-set(Kokkos_DIR "/global/homes/w/wwei/install/kokkos_cpu/lib64/cmake/Kokkos/")
+set(Kokkos_DIR "/global/homes/w/wwei/install/kokkos_clang_openmp/lib64/cmake/Kokkos/")
 find_package(Kokkos REQUIRED)
 
 if (KOKKOS_FOUND)

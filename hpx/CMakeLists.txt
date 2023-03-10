@@ -42,7 +42,7 @@ if (WITH_SILO)
   endif()
 endif()
 
-set(HPX_DIR "/global/homes/w/wwei/install/hpx_Release/lib64/cmake/HPX/")
+set(HPX_DIR "/global/homes/w/wwei/install/hpx_clang_Release/lib64/cmake/HPX/")
 find_package(HPX REQUIRED)
 
 set(LULESH_SOURCES
